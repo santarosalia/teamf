@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="voc">
+	<select id="vocList" resultType="voc">
+	
+	select voc_no as vocNo,
+	claim_no as claimNo,
+	voc_who as vocWho,
+	voc_content as vocContent,
+	voc_penalty as vocPenalty,
+	voc_confirm as vocConfirm,
+	voc_object as vocObject
+	from voc
+	</select>
+	
+<select id="selectOne" parameterType="voc"  resultType="voc">
+	
+	select claim_customer as vocWho
+	from claim where claim_no = #{claimNo}
+	</select>
+	
+	
+	<insert id="insert" parameterType="voc">
+	insert into voc values(voc_seq.nextval,#{claimNo},#{vocWho},#{vocContent},#{vocPenalty},0,0)
+	</insert>
+	<select id="select" parameterType="voc" resultType="voc">
+	select voc_no as vocNo from voc where rownum=1 order by 1 desc
+	</select>
+	
+	<insert id="insertRep" parameterType="int">
+	insert into rep values(rep_seq.nextval,#{vocNo})
+	
+	</insert>
+	<insert id="penaltyInsert" parameterType="voc">
+	insert into penalty values(penalty_seq.nextval,#{vocWho},#{vocNo})
+	</insert>
+</mapper>

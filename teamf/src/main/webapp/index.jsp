@@ -10,7 +10,8 @@
 <body>
 <div class="container">
 <h2>메인</h2>
-<a href="#">VOC</a>
+<a href="/vocList.do">VOC List</a>
+<a href ="/confirm.do">패널티 확인</a>
 </div>
 </body>
 </html>
