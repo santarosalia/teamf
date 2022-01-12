@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>vocList</title>
+<title>confirmList</title>
 <link rel="stylesheet" href="/resources/css/bootstrap.css">
 </head>
 <body>
@@ -16,9 +16,8 @@
 
 <div class="row">
 <div class="col-md-1"> </div>
-<div class="col-md-10">
-<a href="/index.jsp">메인</a><br>
-<a href="/vocWriteFrm.do">VOC 작성</a>
+<div class="col-md-10"><a href="/index.jsp">메인</a><br>
+
  </div>
 <div class="col-md-1"> </div>
 </div>
@@ -29,19 +28,19 @@
 
 <table class="table table-hover">
 <tr>
+<td>패널티 번호</td>
 <td>voc 번호</td>
-<td>클레임 번호</td>
 <td>귀책 당사자</td>
 <td>귀책 내용</td>
 <td>금액</td>
 <td>기사 확인 여부</td>
 <td>이의제기 여부</td>
-<td>패널티 부여</td>
+<td>이의제기</td>
 </tr>
 <c:forEach items="${list }" var="v">
 <tr>
-<td>${v.vocNo }</td>
 <td>${v.claimNo }</td>
+<td>${v.vocNo }</td>
 <td>${v.vocWho }</td>
 <td>${v.vocContent }</td>
 <td>${v.vocPenalty }</td>
@@ -68,10 +67,18 @@
 
 
 </td>
-<td><form action="insertPenalty.do" method="post">
+<td>
+
+<form action="updateObject.do" method="post">
 <input name="vocNo" type="hidden" value="${v.vocNo }">
-<input name="vocWho" type="hidden" value="${v.vocWho }">
-<input type="submit" value="패널티 부여">
+<input name="x" type="hidden" value="1">
+<input type="submit" value="이의없음">
+</form>
+
+<form action="updateObject.do" method="post">
+<input name="vocNo" type="hidden" value="${v.vocNo }">
+<input name="x" type="hidden" value="2">
+<input type="submit" value="이의제기">
 </form></td>
 </tr>
 </c:forEach>

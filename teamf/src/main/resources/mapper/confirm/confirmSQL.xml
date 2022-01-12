@@ -1,7 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="voc">
+<mapper namespace="confirm">
+	
+	<update id="allConfirm" parameterType="voc">
+	update voc set voc_confirm = 1 
+	</update>
+	<update id="noObject" parameterType="int">
+	update voc set voc_object = 1 where voc_no= #{vocNo}
+	</update>
+	<update id="yesObject" parameterType="int">
+	update voc set voc_object = 2 where voc_no= #{vocNo}
+	</update>
+	<select id="confirmList" resultType="voc">
 	
 	
-
+	select voc_no as vocNo,
+	penalty_no as claimNo,
+	voc_who as vocWho,
+	voc_content as vocContent,
+	voc_penalty as vocPenalty,
+	voc_confirm as vocConfirm,
+	voc_object as vocObject
+	from penalty join voc using(voc_no) 
+	
+	</select>
 </mapper>

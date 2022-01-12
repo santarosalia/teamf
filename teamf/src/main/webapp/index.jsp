@@ -10,8 +10,9 @@
 <body>
 <div class="container">
 <h2>메인</h2>
-<a href="/vocList.do">VOC List</a>
-<a href ="/confirm.do">패널티 확인</a>
+<a href="/vocList.do">VOC List</a><br>
+<a href ="/confirmList.do">패널티 확인</a><br>
+<a href ="/repList.do">배상정보</a>
 </div>
 </body>
 </html>

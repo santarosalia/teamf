@@ -1,7 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="voc">
+<mapper namespace="rep">
+	
+	<select id="repList" resultType="voc">
 	
 	
-
+	select voc_no as vocNo,
+	rep_no as claimNo,
+	voc_who as vocWho,
+	voc_content as vocContent,
+	voc_penalty as vocPenalty,
+	voc_confirm as vocConfirm,
+	voc_object as vocObject
+	from rep join voc using(voc_no) 
+	
+	</select>
+	<insert id="repWrite" parameterType="int">
+	insert into rep values(rep_seq.nextval,#{vocNo})
+	</insert>
 </mapper>

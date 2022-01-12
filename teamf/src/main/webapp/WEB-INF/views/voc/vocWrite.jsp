@@ -18,7 +18,7 @@
 	귀책 당사자 : <input name="vocWho" type="text">
 	<br><br>
 	귀책 내용 : <input name="vocContent" type="text"><br><br>
-	패널티 내용 : <input name="vocPenalty" type="text"><br><br>
+	금액 : <input name="vocPenalty" type="text"><br><br>
 	<input type="submit" value="작성">
 	</form></div>
 	<div class="col-md-1"></div>
